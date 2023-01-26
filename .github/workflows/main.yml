@@ -2,7 +2,9 @@ name: Test
 
 on:
   issues:
-    types: [opened]
+    types:
+      - opened
+    
 jobs:
   build:
     runs-on: ubuntu-latest
