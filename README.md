@@ -1,1 +1,3 @@
-<a href="#"><img src="data/map.png"/></a>
+# The Game
+
+<a href="#the-game"><img src="data/map.png"/></a>
