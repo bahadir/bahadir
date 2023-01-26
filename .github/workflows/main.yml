@@ -1,32 +1,13 @@
-name: 'Runner'
-
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-  pull_request:
-
-permissions:
-  contents: write
-  # Needed for the 'trilom/file-changes-action' action
-  pull-requests: write
-
+name: Test
 jobs:
-  job1:
-    name: Modifiy repository files
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2.3.2
-
-  - name: Modifiy the specific files using scripts
-    run: |
-      go run main.go -dir 1
-
-      git config --global user.name "Bot"
-      git config --global user.email "kandemir@gmail.com"
-
-      git add -A
-      git commit -m "Update map"
-      git push
+      - uses: actions/checkout@v3
+      - run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
