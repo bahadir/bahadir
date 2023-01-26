@@ -8,6 +8,7 @@ import (
 	"image"
 	"image/draw"
 	"image/png"
+	"math"
 	"os"
 	"path/filepath"
 	"strings"
@@ -121,7 +122,10 @@ func main() {
 		p.Position.Y--
 	}
 
-	playerLevel := p.XP
+	playerLevel := int(math.Floor((math.Sqrt(625+100*float64(p.XP)) - 25) / 50))
+	if playerLevel > len(playerImages)-1 {
+		playerLevel = len(playerImages) - 1
+	}
 
 	err = p.Save(fileNamePlayer)
 	if err != nil {
