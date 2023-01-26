@@ -162,12 +162,23 @@ func main() {
 	pos := image.Point{X: leftPos, Y: topPos}
 	draw.Draw(imgSmall, img.Bounds(), img, pos, draw.Over)
 
+	imgBig := image.NewRGBA(image.Rect(0, 0, 16*10*4, 16*6*4))
+	for y := 0; y < imgBig.Bounds().Dy(); y += 1 {
+		for x := 0; x < imgBig.Bounds().Dx(); x += 1 {
+			for i := 0; i < 4; i++ {
+				for j := 0; j < 4; j++ {
+					imgBig.Set(x*4+i, y*4+j, imgSmall.At(x, y))
+				}
+			}
+		}
+	}
+
 	// save img to file
 	out, err := os.Create("data/map.png")
 	if err != nil {
 		panic(err)
 	}
-	err = png.Encode(out, imgSmall)
+	err = png.Encode(out, imgBig)
 	if err != nil {
 		panic(err)
 	}
