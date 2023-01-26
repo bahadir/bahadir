@@ -1,0 +1,54 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 3
+        },
+        "#Character": {
+            "scaleInEditor": 1
+        },
+        "map.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 151.33333333333331,
+                "y": 126.66666666666669
+            }
+        },
+        "map.tmx#Character": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "map.tmx#Level": {
+            "scaleInDock": 3
+        }
+    },
+    "last.exportedFilePath": "C:/Users/bkand/Desktop/Tiles/data",
+    "last.imagePath": "C:/Users/bkand/Desktop/Tiles/data/sprites",
+    "map.height": 50,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 100,
+    "openFiles": [
+        "map.tmx"
+    ],
+    "project": "roguelike.tiled-project",
+    "recentFiles": [
+        "map.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.spacing": 1,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
