@@ -37,3 +37,32 @@ jobs:
           git add .
           git commit -m "moving south"
           git push
+  go-left:
+    if: github.event.issue.title == 'go left'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          go run main.go -dir 3
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "moving west"
+          git push
+  go-up:
+    if: github.event.issue.title == 'go up'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          go run main.go -dir 4
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "moving north"
+          git push
+
