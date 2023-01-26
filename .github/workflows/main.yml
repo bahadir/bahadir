@@ -1,4 +1,4 @@
-name: Test
+name: issue
 jobs:
   build:
     runs-on: ubuntu-latest
