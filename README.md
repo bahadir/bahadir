@@ -1,1 +1,1 @@
-<img src="data/map.png"/>
+<a href="#"><img src="data/map.png"/></a>
