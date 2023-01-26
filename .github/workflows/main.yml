@@ -12,7 +12,6 @@ permissions:
   # Needed for the 'trilom/file-changes-action' action
   pull-requests: write
 
-
 jobs:
   job1:
     name: Modifiy repository files
