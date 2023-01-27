@@ -13,5 +13,4 @@ Open an issue with one of the following titles:
 
 
 ## Status
-
-![Action Status](https://github.com/bahadir/bahadir/actions/workflows/main.yml/badge.svg?event=issues)
+<a href="#status"><img src="https://github.com/bahadir/bahadir/actions/workflows/main.yml/badge.svg?event=issues"/></a>
