@@ -15,19 +15,19 @@
             "scaleInEditor": 1
         },
         "map.tmx": {
-            "scale": 4,
-            "selectedLayer": 2,
+            "scale": 2,
+            "selectedLayer": 9,
             "viewCenter": {
-                "x": 97,
-                "y": 94.75
+                "x": 230.5,
+                "y": 163.5
             }
         },
         "map.tmx#Character": {
-            "scaleInDock": 3,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "map.tmx#Level": {
-            "scaleInDock": 3
+            "scaleInDock": 2
         }
     },
     "last.exportedFilePath": "C:/Users/bkand/Desktop/Tiles/data",

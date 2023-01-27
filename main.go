@@ -2,9 +2,6 @@ package main
 
 import (
 	"flag"
-	"github.com/bahadir/bahadir/internal/player"
-	"github.com/bahadir/bahadir/internal/sprite"
-	"github.com/bahadir/bahadir/internal/tilemap"
 	"image"
 	"image/draw"
 	"image/png"
@@ -12,6 +9,10 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/bahadir/bahadir/internal/player"
+	"github.com/bahadir/bahadir/internal/sprite"
+	"github.com/bahadir/bahadir/internal/tilemap"
 )
 
 func main() {
@@ -40,21 +41,37 @@ func main() {
 		}
 	}
 
-	wk := make(map[int]bool)
 	playerImages := make(map[int][]*sprite.Picture, 0)
 	playerOffset := image.Point{X: 0, Y: 0}
+
+	walkableObjects := make(map[int]bool)
+	obstacleObjects := make(map[int]bool)
+
+	walkableCoords := make([][]bool, jsonMap.Height)
+	for y := 0; y < jsonMap.Height; y++ {
+		walkableCoords[y] = make([]bool, jsonMap.Width)
+		for x := 0; x < jsonMap.Width; x++ {
+			walkableCoords[y][x] = false
+		}
+	}
 
 	img := image.NewRGBA(image.Rect(0, 0, jsonMap.TileWidth*jsonMap.Width, jsonMap.TileHeight*jsonMap.Height))
 
 	for _, layer := range jsonMap.Layers {
-		if layer.Name == "Walkable" {
-			for _, tm := range layer.Data {
+		if layer.Name == "Interactions" {
+			for i, tm := range layer.Data {
 				if tm == 0 {
 					continue
 				}
 
-				wk[tm] = true
+				switch i / layer.Width {
+				case 0, 1:
+					walkableObjects[tm] = true
+				case 2, 3:
+					obstacleObjects[tm] = true
+				}
 			}
+			continue
 		} else if strings.HasPrefix(layer.Name, "Player") {
 			for i, tm := range layer.Data {
 				if tm == 0 {
@@ -76,6 +93,16 @@ func main() {
 		for i, tm := range layer.Data {
 			if tm == 0 {
 				continue
+			}
+
+			if !walkableCoords[i/layer.Width][i%layer.Width] {
+				if walkable, ok := walkableObjects[tm]; ok && walkable {
+					walkableCoords[i/layer.Width][i%layer.Width] = true
+				}
+			} else {
+				if obstacle, ok := obstacleObjects[tm]; ok && obstacle {
+					walkableCoords[i/layer.Width][i%layer.Width] = false
+				}
 			}
 
 			pic := t[tm]
@@ -113,13 +140,21 @@ func main() {
 
 	switch direction {
 	case 1:
-		p.Position.X++
+		if p.Position.X+1 < jsonMap.Width && walkableCoords[p.Position.Y][p.Position.X+1] {
+			p.Position.X++
+		}
 	case 2:
-		p.Position.Y++
+		if p.Position.Y+1 < jsonMap.Height && walkableCoords[p.Position.Y+1][p.Position.X] {
+			p.Position.Y++
+		}
 	case 3:
-		p.Position.X--
+		if p.Position.X-1 > 0 && walkableCoords[p.Position.Y][p.Position.X-1] {
+			p.Position.X--
+		}
 	case 4:
-		p.Position.Y--
+		if p.Position.Y-1 > 0 && walkableCoords[p.Position.Y-1][p.Position.X] {
+			p.Position.Y--
+		}
 	}
 
 	playerLevel := int(math.Floor((math.Sqrt(625+100*float64(p.XP)) - 25) / 50))
