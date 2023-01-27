@@ -1,10 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"github.com/bahadir/bahadir/internal/game"
 	"github.com/bahadir/bahadir/internal/player"
+	"github.com/bahadir/bahadir/internal/render"
 	"image/png"
 	"os"
+	"time"
 )
 
 func main() {
@@ -39,12 +42,21 @@ func main() {
 	// Get the scaled image of the map
 	imgBig := g.ImageSnapshot(p.Position.X, p.Position.Y, 15, 8, 3)
 
+	// Create random file name
+	fileName := fmt.Sprintf("data/map-%d.png", time.Now().UTC().UnixMilli())
+
 	// Save genarated image
-	out, err := os.Create("data/map.png")
+	out, err := os.Create(fileName)
 	if err != nil {
 		panic(err)
 	}
 	err = png.Encode(out, imgBig)
+	if err != nil {
+		panic(err)
+	}
+
+	// Render readme
+	err = render.Readme(fileName, "README.md")
 	if err != nil {
 		panic(err)
 	}

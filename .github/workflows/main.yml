@@ -26,7 +26,9 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "Github Actions"
           git pull
+          rm data/map-*.png
           go run main.go
-          git commit -a -m "Follow user command"  
+          git add -A
+          git commit -m "Follow user command"  
           git push
       - uses: peter-evans/close-issue@v2
