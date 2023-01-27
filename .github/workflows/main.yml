@@ -9,6 +9,7 @@ concurrency: single
       
 permissions:
   contents: write
+  issues: write
     
 jobs:
   go-right:
