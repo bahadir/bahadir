@@ -1,6 +1,6 @@
 # Map Design
 
-Map is designed using <a href="https://www.mapeditor.org/">Tiled</a> and exported as a JSON file.
+Map is designed using <a href="https://www.mapeditor.org/">Tiled Map Editor</a> and exported as a JSON file.
 
 - Bottom-first layer, `Interactions` is used to define walkable areas and interactions with objects.
   - Rows 1 and 2 contain the walkable map elements

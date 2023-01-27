@@ -23,8 +23,10 @@ func Readme(imagePath, readmePath string) error {
 
 	data := struct {
 		ImagePath string
+		Tip       string
 	}{
 		ImagePath: imagePath,
+		Tip:       Tip(),
 	}
 
 	err = tmpl.Execute(f, data)

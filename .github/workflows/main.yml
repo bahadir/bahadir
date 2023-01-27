@@ -12,7 +12,10 @@ permissions:
 jobs:
   follow-command:
     if: contains(github.event.issue.labels.*.name, 'game-input')
+
+    # Change to ubuntu-latest if you want to run on GitHub Actions
     runs-on: self-hosted
+
     steps:
       - name: Get repository stats
         run: echo "GAME_XP=$(curl -s https://api.github.com/repos/bahadir/bahadir | jq .stargazers_count)" >> $GITHUB_ENV
