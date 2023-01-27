@@ -1,0 +1,31 @@
+name: Game Input
+
+on:
+  issues:
+    types:
+      - opened
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  follow-command:
+    runs-on: self-hosted
+    steps:
+      - name: Get repository stats
+        run: echo "GAME_XP=$(curl -s https://api.github.com/repos/bahadir/bahadir | jq .stargazers_count)" >> $GITHUB_ENV
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Follow user command
+        env:
+          GAME_INPUT: ${{ github.event.issue.title }}
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "Github Actions"
+          git pull
+          go run main.go
+          git commit -a -m "Follow user command"  
+          git push
+      - uses: peter-evans/close-issue@v2
