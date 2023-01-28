@@ -64,7 +64,7 @@ func (p *Player) MoveCharacter() (int, int) {
 
 	switch input {
 	case "go right":
-		return p.Position.X + 1, p.Position.X
+		return p.Position.X + 1, p.Position.Y
 	case "go left":
 		return p.Position.X - 1, p.Position.Y
 	case "go up":
