@@ -27,7 +27,7 @@ func main() {
 	playerLevel := p.LevelUp()
 
 	x, y := p.MoveCharacter()
-	if !g.CanWalk(x, y) {
+	if g.CanWalk(x, y) {
 		p.Position.X = x
 		p.Position.Y = y
 	}
