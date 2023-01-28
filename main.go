@@ -24,11 +24,12 @@ func main() {
 	}
 
 	// Process input
-	p.ApplyInput()
 	playerLevel := p.LevelUp()
 
-	if !g.CanWalk(p.Position.X, p.Position.Y) {
-		return
+	x, y := p.MoveCharacter()
+	if !g.CanWalk(x, y) {
+		p.Position.X = x
+		p.Position.Y = y
 	}
 
 	err = p.Save(fileNamePlayer)

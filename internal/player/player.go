@@ -59,23 +59,21 @@ func (p *Player) Save(filePath string) error {
 	return encoder.Encode(p)
 }
 
-func (p *Player) ApplyInput() {
+func (p *Player) MoveCharacter() (int, int) {
 	input := strings.ToLower(os.Getenv("GAME_INPUT"))
-
-	if input == "" {
-		return
-	}
 
 	switch input {
 	case "go right":
-		p.Position.X++
+		return p.Position.X + 1, p.Position.X
 	case "go left":
-		p.Position.X--
+		return p.Position.X - 1, p.Position.Y
 	case "go up":
-		p.Position.Y--
+		return p.Position.X, p.Position.Y - 1
 	case "go down":
-		p.Position.Y++
+		return p.Position.X, p.Position.Y + 1
 	}
+
+	return p.Position.X, p.Position.Y
 }
 
 func (p *Player) LevelUp() int {
