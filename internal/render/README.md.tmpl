@@ -4,7 +4,7 @@ Hello! This is **Bahadir Kandemir**.
 
 I'm a software developer living in **Espoo, Finland**. I work at **Unity** as a backend developer, and I develop games on my leisure time.
 
-There's nothing much here to see but you can play my Role Paying Game on GitHub.
+There's nothing much here to see but you can play my Role Playing Game on GitHub.
 
 Have fun!
 
