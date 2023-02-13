@@ -10,9 +10,9 @@ Have fun!
 
 # RPG on GitHub
 
-<a href="#role-playing-github"><img src="data/map-1676230115829.png"/></a>
+<a href="#role-playing-github"><img src="data/map-1676275043586.png"/></a>
 
 <a href="https://github.com/bahadir/bahadir/issues/new?assignees=&labels=game-input&template=go_left.md&title=Go+left">⬅️</a> <a href="https://github.com/bahadir/bahadir/issues/new?assignees=&labels=game-input&template=go_up.md&title=Go+up">⬆️</a> <a href="https://github.com/bahadir/bahadir/issues/new?assignees=&labels=game-input&template=go_down.md&title=Go+down">⬇️</a> <a href="https://github.com/bahadir/bahadir/issues/new?assignees=&labels=game-input&template=go_right.md&title=Go+right">➡️</a> *Click the buttons to create a **Github Issue** that gives an order to the hero.*
 
 ## Tip of the day
-Map is larger than the viewport. Hero can move around the map.
+Star [this repository](https://github.com/bahadir/bahadir) to give XP to the hero. Hero needs XP to level up.
