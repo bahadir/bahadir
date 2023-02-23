@@ -16,3 +16,6 @@ Have fun!
 
 ## Tip of the day
 Star [this repository](https://github.com/bahadir/bahadir) to give XP to the hero. Hero needs XP to level up.
+
+## Create a new character.
+Fork [this repository](https://github.com/bahadir/bahadir) to create your own character.
