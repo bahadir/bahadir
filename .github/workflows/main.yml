@@ -14,7 +14,7 @@ jobs:
     if: contains(github.event.issue.labels.*.name, 'game-input')
 
     # Change to ubuntu-latest if you want to run on GitHub Actions
-    runs-on: self-hosted
+    runs-on: [self-hosted, ubuntu-latest]
 
     steps:
       - name: Get repository stats
