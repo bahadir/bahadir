@@ -10,25 +10,10 @@ permissions:
   issues: write
 
 jobs:
-  choose-runner:
-    runs-on: ubuntu-latest
-    outputs:
-      runner: ${{ steps.runner.outputs.runner }}
-
-    steps:
-    - id: runner
-      run: |
-        if [ "${{ github.actor }}" == "bahadir" ]; then
-          echo "::set-output name=runner::self-hosted"    
-        else
-          echo "::set-output name=runner::ubuntu-latest"
-        fi
-        
   follow-command:
-    needs: [choose-runner]
     if: contains(github.event.issue.labels.*.name, 'game-input')
 
-    runs-on: ${{ needs.choose-runner.outputs.runner }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Get repository stats
