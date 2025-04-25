@@ -13,7 +13,7 @@ jobs:
   follow-command:
     if: contains(github.event.issue.labels.*.name, 'game-input')
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Get repository stats
